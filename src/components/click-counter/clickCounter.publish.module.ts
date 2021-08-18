@@ -9,7 +9,8 @@ import { ClickCounterModelBinder } from "./clickCounterModelBinder";
 // import { ClickCounter, ClickCounterViewModelBinder } from "./vue";
 
 /* Uncomment to switch to React example component */
-import { ClickCounter, ClickCounterViewModelBinder } from "./react";
+// import { ClickCounter, ClickCounterViewModelBinder } from "./react";
+import { ClickCounter, ClickCounterViewModelBinder } from "./p5";
 
 /* Uncomment to switch to Angular example component */
 // import { ClickCounter, ClickCounterViewModelBinder } from "./angular";

@@ -7,7 +7,8 @@ import { IInjector, IInjectorModule } from "@paperbits/common/injection";
 // import { ClickCounterRuntime } from "./vue/runtime";
 
 /* Uncomment to switch to React example component */
-import { ClickCounterRuntime } from "./react/runtime";
+// import { ClickCounterRuntime } from "./react/runtime";
+import { ClickCounterRuntime } from "./p5/runtime";
 
 /* Uncomment to switch to Angular example component */
 // import { ClickCounterRuntime } from "./angular/runtime";

@@ -20,7 +20,7 @@
         "sourceMap": false,
         "allowSyntheticDefaultImports": true,
         "incremental": true,
-        "jsx": "react"
+        "jsx": "react",
     },
     "include": [
         "./src/**/*",
