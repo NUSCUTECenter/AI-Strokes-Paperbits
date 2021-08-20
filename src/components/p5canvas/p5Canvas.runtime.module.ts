@@ -4,6 +4,6 @@ import { P5CanvasRuntime } from "./react/runtime";
 
 export class P5CanvasRuntimeModule implements IInjectorModule {
     public register(injector: IInjector): void {
-        injector.bind("clickCounterRuntime", P5CanvasRuntime);
+        injector.bind("p5CanvasRuntime", P5CanvasRuntime);
     }
 }

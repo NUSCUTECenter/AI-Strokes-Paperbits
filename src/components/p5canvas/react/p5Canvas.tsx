@@ -1,44 +1,25 @@
 import * as React from "react";
-import * as p5 from "p5";
-import Walker from "./Walker";
 
-const Sketch = (p: p5) => {
-  let walker: Walker;
-  let canvas: p5.Renderer;
-
-  p.setup = () => {
-    canvas = p.createCanvas(640, 360);
-    walker = new Walker(p);
-    p.background(127);
-
-    // Need this because for some strange reason it defaults to hidden
-    canvas.style('visibility', "visible");
-  };
-
-  p.draw = () => {
-    walker.step();
-    walker.render();
-  };
-};
-
-// Switching to class style component because useEffect is only
-// available in ReactJS >= 16.8.x and Stack Snippets don't have
-// support yet
 export class P5Canvas extends React.Component {
-  processingRef: React.RefObject<any>;
-  p5Instance: p5;
   constructor(props) {
     super(props);
-    // Switching to React.createRef
-    this.processingRef = React.createRef();
-  }
-
-  componentDidMount() {
-    this.p5Instance = new p5(Sketch, this.processingRef.current);
   }
 
 
-  render() {
-    return <div ref={this.processingRef} />;
+  public render(): JSX.Element {
+    return (
+    <div>
+        <p> REACT PLACEHOLDER STUFF </p>
+        <p className="not-configured">
+            This is an example widget that is yet to be implemented. You can use it as a scaffold for your own widget.
+            </p>
+
+        <p className="not-configured">
+            Please refer to documentation to learn about <a href="https://paperbits.io/wiki/widget-anatomy">widget anatomy</a>.
+            </p>
+
+        <div style={{ height: 100 }} dangerouslySetInnerHTML={{ __html: `<p5-canvas-runtime />` }} />
+    </div>
+    )
   }
 }
