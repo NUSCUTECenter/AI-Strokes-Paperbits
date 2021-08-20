@@ -29,6 +29,7 @@ export class ClickCounterRuntime extends React.Component {
     public render(): JSX.Element {
         return (
             <div className="text text-align-center">
+                <p> REACT RUNTIME </p>
                 <button className="button" onClick={this.increaseCount}>
                     Click me
                     </button>

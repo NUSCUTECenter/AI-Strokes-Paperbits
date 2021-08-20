@@ -1,7 +1,6 @@
 import { IInjectorModule, IInjector } from "@paperbits/common/injection";
 import { ClickCounterModelBinder } from "./clickCounterModelBinder";
 
-
 /* Knockout example component */
 // import { ClickCounter, ClickCounterViewModelBinder } from "./ko";
 
@@ -9,8 +8,7 @@ import { ClickCounterModelBinder } from "./clickCounterModelBinder";
 // import { ClickCounter, ClickCounterViewModelBinder } from "./vue";
 
 /* Uncomment to switch to React example component */
-// import { ClickCounter, ClickCounterViewModelBinder } from "./react";
-import { ClickCounter, ClickCounterViewModelBinder } from "./p5";
+import { ClickCounter, ClickCounterViewModelBinder } from "./react";
 
 /* Uncomment to switch to Angular example component */
 // import { ClickCounter, ClickCounterViewModelBinder } from "./angular";

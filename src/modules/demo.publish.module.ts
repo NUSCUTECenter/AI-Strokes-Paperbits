@@ -18,8 +18,10 @@ import { StaticRouter } from "../routing/staticRouter";
 import { StaticRoleService } from "../user/staticRoleService";
 import { SearchPublishModule } from "@paperbits/core/search/search.publish.module";
 import { ClickCounterEditorModule } from "../components/click-counter/ko";
+import { P5CanvasEditorModule } from "../components/p5Canvas/ko";
 import { FileSystemDataProvider } from "../persistence/fileSystemDataProvider";
 import { ReactModule } from "@paperbits/react/react.module";
+import { inject } from "@angular/core";
 
 
 export class DemoPublishModule implements IInjectorModule {
@@ -41,6 +43,7 @@ export class DemoPublishModule implements IInjectorModule {
         injector.bindInstance("settingsProvider", new StaticSettingsProvider(path.resolve(this.settingsPath)));
         injector.bindModule(new SearchPublishModule());
         injector.bindModule(new ClickCounterEditorModule());
+        injector.bindModule(new P5CanvasEditorModule());
         injector.bindModule(new ReactModule());
     }
 }

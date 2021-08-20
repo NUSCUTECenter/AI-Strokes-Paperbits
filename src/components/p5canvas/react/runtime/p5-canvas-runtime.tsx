@@ -2,7 +2,7 @@ import * as React from "react";
 import { RuntimeComponent } from "@paperbits/react/decorators";
 
 
-export interface ClickCounterState {
+export interface P5CanvasState {
     clickCount: number;
 }
 
@@ -11,9 +11,9 @@ export interface ClickCounterState {
 })
 
 // export class ClickCounter extends React.Component {
-export class ClickCounterRuntime extends React.Component {
+export class P5CanvasRuntime extends React.Component {
     //     public state: any;
-    public state: ClickCounterState;
+    public state: P5CanvasState;
 
     constructor(props) {
         super(props);

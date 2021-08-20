@@ -3,18 +3,18 @@ import { WidgetBinding } from "@paperbits/common/editing";
 import { EventManager } from "@paperbits/common/events";
 import { StyleCompiler } from "@paperbits/common/styles";
 import { ViewModelBinder } from "@paperbits/common/widgets";
-import { ClickCounterModel } from "../clickCounterModel";
-import { ClickCounter } from "./clickCounter";
+import { P5CanvasModel } from "../p5CanvasModel";
+import { P5Canvas } from "./p5Canvas";
 
 
-export class ClickCounterViewModelBinder implements ViewModelBinder<ClickCounterModel, ClickCounter>  {
+export class P5CanvasViewModelBinder implements ViewModelBinder<P5CanvasModel, P5Canvas>  {
     constructor(
         private readonly eventManager: EventManager,
         private readonly styleCompiler: StyleCompiler
     ) { }
 
-    public async createWidgetBinding(model: ClickCounterModel, bindingContext: Bag<any>): Promise<WidgetBinding<ClickCounterModel, ClickCounter>> {
-        const binding = new WidgetBinding<ClickCounterModel, ClickCounter>();
+    public async createWidgetBinding(model: P5CanvasModel, bindingContext: Bag<any>): Promise<WidgetBinding<P5CanvasModel, P5Canvas>> {
+        const binding = new WidgetBinding<P5CanvasModel, P5Canvas>();
         binding.framework = "react";
         binding.model = model;
         binding.name = "click-counter";
@@ -23,7 +23,7 @@ export class ClickCounterViewModelBinder implements ViewModelBinder<ClickCounter
         binding.flow = "block";
         binding.draggable = true;
         binding.displayName = "Click counter";
-        binding.viewModelClass = ClickCounter;
+        binding.viewModelClass = P5Canvas;
         binding.applyChanges = async () => {
             await this.modelToViewModel(model, binding.viewModel, bindingContext);
             this.eventManager.dispatchEvent("onContentUpdate");
@@ -40,7 +40,7 @@ export class ClickCounterViewModelBinder implements ViewModelBinder<ClickCounter
         return binding;
     }
 
-    public async modelToViewModel(model: ClickCounterModel, viewModel: ClickCounter, bindingContext?: Bag<any>): Promise<ClickCounter> {
+    public async modelToViewModel(model: P5CanvasModel, viewModel: P5Canvas, bindingContext?: Bag<any>): Promise<P5Canvas> {
         let classNames = null;
 
         if (model.styles) {
@@ -61,7 +61,7 @@ export class ClickCounterViewModelBinder implements ViewModelBinder<ClickCounter
         return viewModel;
     }
 
-    public canHandleModel(model: ClickCounterModel): boolean {
-        return model instanceof ClickCounterModel;
+    public canHandleModel(model: P5CanvasModel): boolean {
+        return model instanceof P5CanvasModel;
     }
 }

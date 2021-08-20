@@ -24,7 +24,7 @@ const Sketch = (p: p5) => {
 // Switching to class style component because useEffect is only
 // available in ReactJS >= 16.8.x and Stack Snippets don't have
 // support yet
-export class ClickCounter extends React.Component {
+export class P5Canvas extends React.Component {
   processingRef: React.RefObject<any>;
   p5Instance: p5;
   constructor(props) {
