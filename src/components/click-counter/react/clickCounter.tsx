@@ -14,7 +14,7 @@ export class ClickCounter extends React.Component {
     public render(): JSX.Element {
         return (
             <div className={this.state.classNames}>
-                <p> REACT </p>
+                <p> REACT PLACEHOLDER STUFF </p>
                 <p className="not-configured">
                     This is an example widget that is yet to be implemented. You can use it as a scaffold for your own widget.
                     </p>

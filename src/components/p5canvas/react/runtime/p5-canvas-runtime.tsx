@@ -7,10 +7,9 @@ export interface P5CanvasState {
 }
 
 @RuntimeComponent({
-    selector: "click-counter-runtime"
+    selector: "p5-canvas-runtime"
 })
 
-// export class ClickCounter extends React.Component {
 export class P5CanvasRuntime extends React.Component {
     //     public state: any;
     public state: P5CanvasState;

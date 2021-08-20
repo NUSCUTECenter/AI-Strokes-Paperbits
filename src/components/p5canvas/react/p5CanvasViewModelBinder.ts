@@ -17,12 +17,12 @@ export class P5CanvasViewModelBinder implements ViewModelBinder<P5CanvasModel, P
         const binding = new WidgetBinding<P5CanvasModel, P5Canvas>();
         binding.framework = "react";
         binding.model = model;
-        binding.name = "click-counter";
-        binding.editor = "click-counter-editor";
+        binding.name = "p5-canvas";
+        binding.editor = "p5-canvas-editor";
         binding.readonly = false;
         binding.flow = "block";
         binding.draggable = true;
-        binding.displayName = "Click counter";
+        binding.displayName = "P5 canvas";
         binding.viewModelClass = P5Canvas;
         binding.applyChanges = async () => {
             await this.modelToViewModel(model, binding.viewModel, bindingContext);

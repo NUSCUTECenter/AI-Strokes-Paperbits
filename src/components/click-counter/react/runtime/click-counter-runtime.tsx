@@ -1,9 +1,12 @@
 import * as React from "react";
 import { RuntimeComponent } from "@paperbits/react/decorators";
+import { getSessionStorage, getSessionStorageOrDefault, setSessionStorage } from "../../../../persistence/react/useSessionStorage";
 
+const totalClickCountKey = 'click-counter-total-click-count-key';
 
 export interface ClickCounterState {
     clickCount: number;
+    totalClickCount: number;
 }
 
 @RuntimeComponent({
@@ -16,14 +19,50 @@ export class ClickCounterRuntime extends React.Component {
         super(props);
 
         this.state = {
-            clickCount: props.initialCount || 0
+            clickCount: props.initialCount || 0,
+            totalClickCount: getSessionStorageOrDefault(totalClickCountKey, 0)
         };
 
         this.increaseCount = this.increaseCount.bind(this);
     }
 
     public increaseCount(): void {
-        this.setState({ clickCount: this.state.clickCount + 1 });
+        const currentTotalClickCount = getSessionStorage<number>(totalClickCountKey);
+        const newTotalClickCount = currentTotalClickCount + 1;
+        setSessionStorage(totalClickCountKey, newTotalClickCount); 
+        
+        this.setState({
+            clickCount: this.state.clickCount + 1,
+            totalClickCount: newTotalClickCount,
+        })
+
+        const event = new CustomEvent('totalClickCountIncreased', {
+            detail: {
+                value: newTotalClickCount,
+            },
+        });
+
+      
+        document.dispatchEvent(event);
+    }
+
+    
+    private totalClickCountIncreaseHandler = function(e: CustomEvent) {
+        this.setState({
+            totalClickCount: e.detail.value,
+        })
+
+        return false;
+    }.bind(this);
+  
+    
+    public componentDidMount() {
+        document.addEventListener("totalClickCountIncreased", this.totalClickCountIncreaseHandler, false);
+    }
+
+    public componentDidDismount() {
+        document.removeEventListener("totalClickCountIncreased", this.totalClickCountIncreaseHandler, false);
+
     }
 
     public render(): JSX.Element {
@@ -34,8 +73,12 @@ export class ClickCounterRuntime extends React.Component {
                     Click me
                     </button>
                 <div>
-                    <label htmlFor="clickCount">Click count:</label>
+                    <label htmlFor="clickCount">Local Click count:</label>
                     <b id="clickCount">{this.state.clickCount}</b>
+                </div>
+                <div>
+                    <label htmlFor="clickCount">Total Click count:</label>
+                    <b id="clickCount">{this.state.totalClickCount}</b>
                 </div>
             </div>
         );
